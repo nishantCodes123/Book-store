@@ -8,8 +8,8 @@ import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 import BooksCard from "../components/HomeStyle/BooksCard";
 import BooksTable from "../components/HomeStyle/BooksTable";
 function Home() {
-  const [books, setBooks] = useState([]);  //  Correct initial state
-  const [loading, setLoading] = useState(false); //  Fix loading state
+  const [books, setBooks] = useState([]);  
+  const [loading, setLoading] = useState(false); 
   const [showType, setShowType] = useState('table')
 
   useEffect(() => {
@@ -17,7 +17,7 @@ function Home() {
     axios
       .get("http://localhost:5555/books")
       .then((response) => {
-        setBooks(response.data.data || []); // ✅ Ensure it's always an array
+        setBooks(response.data.data || []); 
         setLoading(false);
       })
       .catch((error) => {

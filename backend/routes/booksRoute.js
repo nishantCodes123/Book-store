@@ -1,8 +1,8 @@
-import express from 'express'; // ✅ Correct import
-import { Book } from '../models/bookModel.js'; // ✅ Ensure correct path
+import express from 'express'; 
+import { Book } from '../models/bookModel.js'; 
 const router = express.Router();
 
-router.post('/', async (req, res) => {  // ✅ No need to repeat `/books`
+router.post('/', async (req, res) => {  
     try {
         if (!req.body.title || !req.body.author || !req.body.publishYear) {
             return res.status(400).send({
@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {  // ✅ No need to repeat `/books`
     }
 });
 
-// ✅ Fix all routes: Use `/:id` instead of `/books/:id`
+
 router.get("/", async (req, res) => {
     try {
         const books = await Book.find();
